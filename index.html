@@ -27,8 +27,8 @@
     
     #scrollToTopBtn {
       position: fixed;
-      bottom: 2rem;
-      right: 1rem;
+      bottom: 1.5rem;
+      right: 1.5rem;
       width: 3rem;
       height: 3rem;
       background: #e11d48;
@@ -61,6 +61,7 @@
     
     .nav-link {
       transition: color 0.2s ease;
+      position: relative;
     }
     
     .nav-link:hover {
@@ -74,39 +75,144 @@
     .content-card:hover {
       transform: translateY(-4px);
     }
+    
+    /* Mobile Menu Styles */
+    .mobile-menu {
+      display: none;
+    }
+    
+    .mobile-menu.active {
+      display: block;
+    }
+    
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+    
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #e11d48;
+      transition: 0.3s;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+      
+      .desktop-nav {
+        display: none;
+      }
+      
+      .mobile-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border-top: 1px solid #e5e7eb;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      
+      .mobile-menu a {
+        display: block;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #f3f4f6;
+        transition: background-color 0.2s ease;
+      }
+      
+      .mobile-menu a:hover {
+        background-color: #f9fafb;
+      }
+      
+      .content-grid-3 {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .content-grid-2 {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .content-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+      
+      .content-grid-3 .content-card:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+      }
+    }
+    
+    @media (min-width: 1025px) {
+      .content-grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+      }
+      
+      .content-grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem;
+      }
+    }
   </style>
 </head>
 <body id="top">
 
   <!-- Header -->
   <header class="w-full shadow-lg bg-white sticky top-0 z-50 border-b-2 border-red-600">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center relative">
       <a href="#top" class="flex items-center gap-3 logo cursor-pointer">
-        <img src="logo.png" alt="Logo" class="h-12 w-12 rounded-lg shadow-sm" />
-        <span class="text-xl font-bold tracking-wide">THE PLUS DIGITAL</span>
+        <img src="logo.png" alt="Logo" class="h-10 w-10 sm:h-12 sm:w-12 rounded-lg shadow-sm" />
+        <span class="text-lg sm:text-xl font-bold tracking-wide">THE PLUS DIGITAL</span>
       </a>
-      <nav class="flex items-center space-x-8 text-sm font-medium">
+      
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav hidden md:flex space-x-6 lg:space-x-8 text-sm font-medium">
         <a href="#youtube" class="nav-link">YouTube Channels</a>
         <a href="#webmedia" class="nav-link">Web Media</a>
         <a href="#apps" class="nav-link">Apps</a>
-        <a href="https://play.google.com/store/apps/dev?id=YOUR_ID" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-          </svg>
-          Play Store
-        </a>
+      </nav>
+      
+      <!-- Mobile Hamburger -->
+      <div class="hamburger md:hidden" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <!-- Mobile Menu -->
+      <nav class="mobile-menu md:hidden">
+        <a href="#youtube" onclick="closeMobileMenu()">YouTube Channels</a>
+        <a href="#webmedia" onclick="closeMobileMenu()">Web Media</a>
+        <a href="#apps" onclick="closeMobileMenu()">Apps</a>
       </nav>
     </div>
   </header>
 
   <!-- Welcome Section -->
-  <section class="max-w-5xl mx-auto px-6 py-12 text-center">
-    <h1 class="text-4xl font-bold mb-6 text-gray-800">Welcome to The Plus Digital</h1>
-    <div class="max-w-4xl mx-auto text-gray-600 text-base leading-relaxed text-justify">
-      <p class="mb-4">
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 text-center">
+    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-gray-800">Welcome to The Plus Digital</h1>
+    <div class="max-w-4xl mx-auto text-gray-600 text-sm sm:text-base leading-relaxed text-justify">
+      <p class="mb-3 sm:mb-4">
         Explore our comprehensive digital ecosystem where creativity meets innovation. We are dedicated to providing cutting-edge solutions across multiple platforms, from YouTube content creation to advanced web development tools and mobile applications.
       </p>
-      <p class="mb-4">
+      <p class="mb-3 sm:mb-4">
         Our mission is to empower creators, developers, and businesses with the tools and knowledge they need to succeed in the digital landscape. Whether you're looking for WordPress plugins, staying updated with the latest tech trends, or accessing our mobile apps, we've got you covered.
       </p>
       <p>
@@ -117,23 +223,23 @@
 
   <!-- YouTube Channels Section -->
   <section id="youtube" class="section-content">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-2xl font-bold mb-8 text-center text-gray-800">Our YouTube Channels</h2>
-      <div class="flex justify-center gap-12 items-center flex-wrap">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center text-gray-800">Our YouTube Channels</h2>
+      <div class="content-grid-3 grid justify-items-center">
         <div class="text-center content-card">
-          <img src="yt1.png" alt="Plus Blocks" class="h-20 w-20 rounded-xl mb-4 mx-auto shadow-md" />
-          <h3 class="font-bold text-lg mb-2">Plus Blocks</h3>
-          <p class="text-sm text-gray-600 max-w-40">Building amazing designs with our blocks</p>
+          <img src="yt1.png" alt="Plus Blocks" class="h-16 w-16 sm:h-20 sm:w-20 rounded-xl mb-3 sm:mb-4 mx-auto shadow-md" />
+          <h3 class="font-bold text-base sm:text-lg mb-2">Plus Blocks</h3>
+          <p class="text-xs sm:text-sm text-gray-600 max-w-40">Building amazing designs with our blocks</p>
         </div>
         <div class="text-center content-card">
-          <img src="yt2.png" alt="The Plus Blocks" class="h-20 w-20 rounded-xl mb-4 mx-auto shadow-md" />
-          <h3 class="font-bold text-lg mb-2">The Plus Blocks</h3>
-          <p class="text-sm text-gray-600 max-w-40">Advanced plugins for WordPress</p>
+          <img src="yt2.png" alt="The Plus Blocks" class="h-16 w-16 sm:h-20 sm:w-20 rounded-xl mb-3 sm:mb-4 mx-auto shadow-md" />
+          <h3 class="font-bold text-base sm:text-lg mb-2">The Plus Blocks</h3>
+          <p class="text-xs sm:text-sm text-gray-600 max-w-40">Advanced plugins for WordPress</p>
         </div>
         <div class="text-center content-card">
-          <img src="yt3.png" alt="The Plus Apps" class="h-20 w-20 rounded-xl mb-4 mx-auto shadow-md" />
-          <h3 class="font-bold text-lg mb-2">The Plus Apps</h3>
-          <p class="text-sm text-gray-600 max-w-40">Tips & updates on our apps</p>
+          <img src="yt3.png" alt="The Plus Apps" class="h-16 w-16 sm:h-20 sm:w-20 rounded-xl mb-3 sm:mb-4 mx-auto shadow-md" />
+          <h3 class="font-bold text-base sm:text-lg mb-2">The Plus Apps</h3>
+          <p class="text-xs sm:text-sm text-gray-600 max-w-40">Tips & updates on our apps</p>
         </div>
       </div>
     </div>
@@ -144,18 +250,18 @@
 
   <!-- Web Media Section -->
   <section id="webmedia" class="section-content">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-2xl font-bold mb-8 text-center text-gray-800">Web Media</h2>
-      <div class="flex justify-center gap-16 items-center flex-wrap">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center text-gray-800">Web Media</h2>
+      <div class="content-grid-2 grid justify-items-center">
         <div class="text-center content-card">
-          <img src="web1.png" alt="Plus News" class="h-20 w-20 rounded-xl mb-4 mx-auto shadow-md" />
-          <h3 class="font-bold text-lg mb-2">Plus News</h3>
-          <p class="text-sm text-gray-600 max-w-48">Latest updates and news blog</p>
+          <img src="web1.png" alt="Plus News" class="h-16 w-16 sm:h-20 sm:w-20 rounded-xl mb-3 sm:mb-4 mx-auto shadow-md" />
+          <h3 class="font-bold text-base sm:text-lg mb-2">Plus News</h3>
+          <p class="text-xs sm:text-sm text-gray-600 max-w-48">Latest updates and news blog</p>
         </div>
         <div class="text-center content-card">
-          <img src="web2.png" alt="Tech Updates" class="h-20 w-20 rounded-xl mb-4 mx-auto shadow-md" />
-          <h3 class="font-bold text-lg mb-2">Tech Updates</h3>
-          <p class="text-sm text-gray-600 max-w-48">Technology insights and trends</p>
+          <img src="web2.png" alt="Tech Updates" class="h-16 w-16 sm:h-20 sm:w-20 rounded-xl mb-3 sm:mb-4 mx-auto shadow-md" />
+          <h3 class="font-bold text-base sm:text-lg mb-2">Tech Updates</h3>
+          <p class="text-xs sm:text-sm text-gray-600 max-w-48">Technology insights and trends</p>
         </div>
       </div>
     </div>
@@ -166,40 +272,49 @@
 
   <!-- Mobile Apps Section -->
   <section id="apps" class="section-content">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-2xl font-bold mb-8 text-center text-gray-800">Mobile Apps</h2>
-      <div class="flex justify-center gap-16 items-center flex-wrap">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center text-gray-800">Mobile Apps</h2>
+      <div class="content-grid-2 grid justify-items-center">
         <div class="text-center content-card">
-          <img src="app1.png" alt="News App" class="h-20 w-20 rounded-xl mb-4 mx-auto shadow-md" />
-          <h3 class="font-bold text-lg mb-2">News App</h3>
-          <p class="text-sm text-gray-600 max-w-40">Get daily news on your phone</p>
+          <img src="app1.png" alt="News App" class="h-16 w-16 sm:h-20 sm:w-20 rounded-xl mb-3 sm:mb-4 mx-auto shadow-md" />
+          <h3 class="font-bold text-base sm:text-lg mb-2">News App</h3>
+          <p class="text-xs sm:text-sm text-gray-600 max-w-40">Get daily news on your phone</p>
         </div>
         <div class="text-center content-card">
-          <img src="app2.png" alt="The Plus App" class="h-20 w-20 rounded-xl mb-4 mx-auto shadow-md" />
-          <h3 class="font-bold text-lg mb-2">The Plus App</h3>
-          <p class="text-sm text-gray-600 max-w-40">All our updates in one place</p>
+          <img src="app2.png" alt="The Plus App" class="h-16 w-16 sm:h-20 sm:w-20 rounded-xl mb-3 sm:mb-4 mx-auto shadow-md" />
+          <h3 class="font-bold text-base sm:text-lg mb-2">The Plus App</h3>
+          <p class="text-xs sm:text-sm text-gray-600 max-w-40">All our updates in one place</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-50 border-t-2 border-gray-200 py-8 px-6 text-sm mt-8">
-    <div class="max-w-7xl mx-auto text-center">
-      <p class="font-medium text-gray-600 mb-4">© 2025 The Plus Digital. All rights reserved.</p>
-      <div class="flex justify-center items-center gap-6">
-        <a href="mailto:theplusdigital@gmail.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-red-600 hover:text-red-700 hover:underline transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current" viewBox="0 0 24 24">
-            <path d="M2 4a2 2 0 012-2h16a2 2 0 012 2v1l-10 6L2 5V4zm0 3.25v12a2 2 0 002 2h16a2 2 0 002-2v-12l-10 6-10-6z"/>
-          </svg>
-          theplusdigital@gmail.com
-        </a>
-        <div class="h-6 w-px bg-gray-300"></div>
+  <footer class="bg-gray-50 border-t-2 border-gray-200 py-6 sm:py-8 px-4 sm:px-6 text-sm mt-8">
+    <div class="max-w-7xl mx-auto">
+      <!-- Copyright - Center Aligned -->
+      <div class="text-center mb-4">
+        <p class="font-medium text-gray-600">© 2025 The Plus Digital. All rights reserved.</p>
+      </div>
+      
+      <!-- Footer Links - Left Play Store, Right Email -->
+      <div class="footer-content flex flex-col sm:flex-row justify-between items-center gap-4">
+        <!-- Left: Google Play Store -->
         <a href="https://play.google.com/store/apps/dev?id=YOUR_ID" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-600 hover:text-red-600 transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
             <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
           </svg>
-          Google Play Store
+          <span class="hidden sm:inline">Google Play Store</span>
+          <span class="sm:hidden">Play Store</span>
+        </a>
+        
+        <!-- Right: Email -->
+        <a href="mailto:theplusdigital@gmail.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-red-600 hover:text-red-700 hover:underline transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current" viewBox="0 0 24 24">
+            <path d="M2 4a2 2 0 012-2h16a2 2 0 012 2v1l-10 6L2 5V4zm0 3.25v12a2 2 0 002 2h16a2 2 0 002-2v-12l-10 6-10-6z"/>
+          </svg>
+          <span class="hidden sm:inline">theplusdigital@gmail.com</span>
+          <span class="sm:hidden">Email</span>
         </a>
       </div>
     </div>
@@ -207,10 +322,41 @@
 
   <!-- Scroll to Top Button -->
   <button id="scrollToTopBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" title="Back to top">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
     </svg>
   </button>
+
+  <script>
+    function toggleMobileMenu() {
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const hamburger = document.querySelector('.hamburger');
+      
+      mobileMenu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    }
+    
+    function closeMobileMenu() {
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const hamburger = document.querySelector('.hamburger');
+      
+      mobileMenu.classList.remove('active');
+      hamburger.classList.remove('active');
+    }
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const header = document.querySelector('header');
+      if (!header.contains(event.target)) {
+        closeMobileMenu();
+      }
+    });
+    
+    // Close mobile menu on scroll
+    window.addEventListener('scroll', function() {
+      closeMobileMenu();
+    });
+  </script>
 
 </body>
 </html>
