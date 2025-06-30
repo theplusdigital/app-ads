@@ -4,11 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Plus Digital</title>
+  <!-- Poppins font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      background-color: #000; /* Black background */
+      background-color: #fff; /* White background */
       color: #e11d48; /* Red text */
+      font-family: 'Poppins', sans-serif;
     }
     .scroll-x::-webkit-scrollbar {
       height: 8px;
@@ -18,7 +21,7 @@
       border-radius: 4px;
     }
     a:hover {
-      color: #fff; /* white on hover */
+      color: #000; /* black on hover */
     }
     /* Scroll containers: red border at bottom */
     .scroll-x {
@@ -26,75 +29,75 @@
     }
   </style>
 </head>
-<body class="bg-black text-red-600">
+<body class="bg-white text-red-600 font-poppins">
 
   <!-- Header -->
-  <header class="w-full shadow-sm bg-black sticky top-0 z-50 border-b border-red-600">
+  <header class="w-full shadow-sm bg-white sticky top-0 z-50 border-b border-red-600">
     <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
       <div class="flex items-center gap-3">
         <img src="logo.png" alt="Logo" class="h-10 w-10 rounded-sm object-cover" />
-        <span class="text-lg font-semibold tracking-wide text-red-500">THE PLUS DIGITAL</span>
+        <span class="text-lg font-semibold tracking-wide text-red-600">THE PLUS DIGITAL</span>
       </div>
       <nav class="space-x-6 text-sm font-medium">
-        <a href="#youtube" class="hover:text-white">YouTube Channels</a>
-        <a href="#apps" class="hover:text-white">Apps</a>
-        <a href="#webmedia" class="hover:text-white">Web Media</a>
+        <a href="#youtube" class="hover:text-black">YouTube Channels</a>
+        <a href="#apps" class="hover:text-black">Apps</a>
+        <a href="#webmedia" class="hover:text-black">Web Media</a>
       </nav>
     </div>
   </header>
 
   <!-- Welcome Section -->
   <section class="max-w-4xl mx-auto px-4 py-10 text-center">
-    <h1 class="text-3xl font-bold mb-2 text-red-500">Welcome to The Plus Digital</h1>
-    <p class="text-red-400 text-sm">Explore our content and applications across various platforms.</p>
+    <h1 class="text-3xl font-bold mb-2 text-red-600">Welcome to The Plus Digital</h1>
+    <p class="text-red-500 text-sm">Explore our content and applications across various platforms.</p>
   </section>
 
   <!-- YouTube Channels -->
   <section id="youtube" class="max-w-6xl mx-auto px-4 py-6">
-    <h2 class="text-xl font-semibold mb-4 text-red-500">Our YouTube Channels</h2>
+    <h2 class="text-xl font-semibold mb-4 text-red-600">Our YouTube Channels</h2>
     <div class="flex gap-4 overflow-x-auto scroll-x pb-2">
-      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-black">
+      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-white">
         <img src="https://yt3.ggpht.com/ytc/AMLnZu-rmvKXNR4hMx3AJkX-j5Ix5g2WYcDJp2Bx_mJ2Jg=s88-c-k-c0x00ffffff-no-rj" alt="Plus Blocks" class="h-16 w-16 mb-2 rounded-sm object-cover" />
-        <h3 class="font-bold text-red-500">Plus Blocks</h3>
-        <p class="text-sm text-red-400">Building amazing designs with our blocks</p>
+        <h3 class="font-bold text-red-600">Plus Blocks</h3>
+        <p class="text-sm text-red-500">Building amazing designs with our blocks</p>
       </div>
-      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-black">
+      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-white">
         <img src="https://yt3.ggpht.com/ytc/AMLnZu8OYSMiFMm5oA-jdu-nfG4Ty5hQOEvpxETu2rX4=s88-c-k-c0x00ffffff-no-rj" alt="The Plus Blocks" class="h-16 w-16 mb-2 rounded-sm object-cover" />
-        <h3 class="font-bold text-red-500">The Plus Blocks</h3>
-        <p class="text-sm text-red-400">Advanced plugins for the WordPress platform</p>
+        <h3 class="font-bold text-red-600">The Plus Blocks</h3>
+        <p class="text-sm text-red-500">Advanced plugins for the WordPress platform</p>
       </div>
-      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-black">
+      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-white">
         <img src="https://yt3.ggpht.com/ytc/AMLnZu_0sH6I9uHKyUpe1Q2ikgHYnpAyR9rvSKtrDgYZ=s88-c-k-c0x00ffffff-no-rj" alt="The Plus Apps" class="h-16 w-16 mb-2 rounded-sm object-cover" />
-        <h3 class="font-bold text-red-500">The Plus Apps</h3>
-        <p class="text-sm text-red-400">Various updates and tips on our apps</p>
+        <h3 class="font-bold text-red-600">The Plus Apps</h3>
+        <p class="text-sm text-red-500">Various updates and tips on our apps</p>
       </div>
     </div>
   </section>
 
   <!-- Web Media -->
   <section id="webmedia" class="max-w-6xl mx-auto px-4 py-6">
-    <h2 class="text-xl font-semibold mb-4 text-red-500">Web Media</h2>
+    <h2 class="text-xl font-semibold mb-4 text-red-600">Web Media</h2>
     <div class="flex gap-4 overflow-x-auto scroll-x pb-2">
-      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-black text-center">
-        <img src="https://via.placeholder.com/64x64/FF0000/000000?text=PN" alt="Plus News" class="h-16 w-16 mb-2 rounded-sm object-cover mx-auto" />
-        <h3 class="font-bold text-red-500">Plus News</h3>
-        <p class="text-sm text-red-400">Latest updates and news blog.</p>
+      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-white text-center">
+        <img src="https://via.placeholder.com/64x64/FF0000/FFFFFF?text=PN" alt="Plus News" class="h-16 w-16 mb-2 rounded-sm object-cover mx-auto" />
+        <h3 class="font-bold text-red-600">Plus News</h3>
+        <p class="text-sm text-red-500">Latest updates and news blog.</p>
       </div>
-      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-black text-center">
-        <img src="https://via.placeholder.com/64x64/FF0000/000000?text=TU" alt="Tech Updates" class="h-16 w-16 mb-2 rounded-sm object-cover mx-auto" />
-        <h3 class="font-bold text-red-500">Tech Updates</h3>
-        <p class="text-sm text-red-400">Latest technology news and insights.</p>
+      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-white text-center">
+        <img src="https://via.placeholder.com/64x64/FF0000/FFFFFF?text=TU" alt="Tech Updates" class="h-16 w-16 mb-2 rounded-sm object-cover mx-auto" />
+        <h3 class="font-bold text-red-600">Tech Updates</h3>
+        <p class="text-sm text-red-500">Latest technology news and insights.</p>
       </div>
     </div>
   </section>
 
   <!-- Mobile Apps -->
   <section id="apps" class="max-w-6xl mx-auto px-4 py-6">
-    <h2 class="text-xl font-semibold mb-4 text-red-500">Mobile Apps</h2>
+    <h2 class="text-xl font-semibold mb-4 text-red-600">Mobile Apps</h2>
     <div class="flex gap-4 overflow-x-auto scroll-x pb-2">
       <!-- Play Store Button First -->
       <div
-        class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-black text-center flex flex-col items-center justify-center"
+        class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-white text-center flex flex-col items-center justify-center"
       >
         <a href="https://play.google.com/store/apps/dev?id=YOUR_ID" target="_blank" rel="noopener noreferrer">
           <img
@@ -103,30 +106,30 @@
             class="h-12 mb-2 object-contain"
           />
         </a>
-        <p class="text-sm text-red-400">For apps, visit us on Google Play Store</p>
+        <p class="text-sm text-red-500">For apps, visit us on Google Play Store</p>
       </div>
 
       <!-- App Cards -->
-      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-black text-center">
-        <img src="https://via.placeholder.com/64x64/FF0000/000000?text=NA" alt="News App" class="h-16 w-16 mb-2 rounded-sm object-cover mx-auto" />
-        <h3 class="font-bold text-red-500">News App</h3>
-        <p class="text-sm text-red-400">Get daily news on your phone.</p>
+      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-white text-center">
+        <img src="https://via.placeholder.com/64x64/FF0000/FFFFFF?text=NA" alt="News App" class="h-16 w-16 mb-2 rounded-sm object-cover mx-auto" />
+        <h3 class="font-bold text-red-600">News App</h3>
+        <p class="text-sm text-red-500">Get daily news on your phone.</p>
       </div>
-      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-black text-center">
-        <img src="https://via.placeholder.com/64x64/FF0000/000000?text=TPA" alt="The Plus App" class="h-16 w-16 mb-2 rounded-sm object-cover mx-auto" />
-        <h3 class="font-bold text-red-500">The Plus App</h3>
-        <p class="text-sm text-red-400">All our updates in one place.</p>
+      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-white text-center">
+        <img src="https://via.placeholder.com/64x64/FF0000/FFFFFF?text=TPA" alt="The Plus App" class="h-16 w-16 mb-2 rounded-sm object-cover mx-auto" />
+        <h3 class="font-bold text-red-600">The Plus App</h3>
+        <p class="text-sm text-red-500">All our updates in one place.</p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-black border-t border-red-600 py-6 px-4 text-sm">
+  <footer class="bg-white border-t border-red-600 py-6 px-4 text-sm">
     <div
-      class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-red-400"
+      class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-red-500"
     >
       <p>© 2025 The Plus Digital. All rights reserved.</p>
-      <a href="mailto:theplusdigital@gmail.com" class="flex items-center gap-2 text-red-500 hover:underline">
+      <a href="mailto:theplusdigital@gmail.com" class="flex items-center gap-2 text-red-600 hover:underline">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-5 w-5 fill-current"
