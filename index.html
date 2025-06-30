@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Plus Digital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom scroll for horizontal sections */
+    .scroll-x::-webkit-scrollbar {
+      height: 8px;
+    }
+    .scroll-x::-webkit-scrollbar-thumb {
+      background: #e11d48;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Header -->
+  <header class="w-full shadow-sm bg-white sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <div class="bg-red-600 text-white rounded-full p-2 font-bold text-lg">P</div>
+        <span class="text-lg font-semibold">THE PLUS DIGITAL</span>
+      </div>
+      <nav class="space-x-6 text-sm font-medium">
+        <a href="#youtube" class="hover:text-red-600">YouTube Channels</a>
+        <a href="#apps" class="hover:text-red-600">Apps</a>
+        <a href="#webmedia" class="hover:text-red-600">Web Media</a>
+        <a href="#contact" class="hover:text-red-600">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Welcome Section -->
+  <section class="max-w-4xl mx-auto px-4 py-10 text-center">
+    <h1 class="text-3xl font-bold mb-2">Welcome to The Plus Digital</h1>
+    <p class="text-gray-600 text-sm">Explore our content and applications across various platforms.</p>
+  </section>
+
+  <!-- YouTube Channels -->
+  <section id="youtube" class="max-w-6xl mx-auto px-4 py-6">
+    <h2 class="text-xl font-semibold mb-4">Our YouTube Channels</h2>
+    <div class="flex gap-4 overflow-x-auto scroll-x pb-2">
+      <div class="flex-shrink-0 w-64 p-4 border rounded">
+        <img src="https://www.svgrepo.com/show/349513/youtube.svg" alt="YT" class="h-10 mb-2">
+        <h3 class="font-bold">Plus Blocks</h3>
+        <p class="text-sm text-gray-600">Building amazing designs with our blocks</p>
+      </div>
+      <div class="flex-shrink-0 w-64 p-4 border rounded">
+        <img src="https://www.svgrepo.com/show/349513/youtube.svg" alt="YT" class="h-10 mb-2">
+        <h3 class="font-bold">The Plus Blocks</h3>
+        <p class="text-sm text-gray-600">Advanced plugins for the WordPress platform</p>
+      </div>
+      <div class="flex-shrink-0 w-64 p-4 border rounded">
+        <img src="https://www.svgrepo.com/show/349513/youtube.svg" alt="YT" class="h-10 mb-2">
+        <h3 class="font-bold">The Plus Apps</h3>
+        <p class="text-sm text-gray-600">Various updates and tips on our apps</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Web Media -->
+  <section id="webmedia" class="max-w-6xl mx-auto px-4 py-6">
+    <h2 class="text-xl font-semibold mb-4">Web Media</h2>
+    <div class="flex gap-4 overflow-x-auto scroll-x pb-2">
+      <div class="flex-shrink-0 w-64 p-4 border rounded">
+        <div class="bg-red-600 w-16 h-16 rounded mb-2"></div>
+        <h3 class="font-bold">Plus News</h3>
+        <p class="text-sm text-gray-600">Latest updates and news blog.</p>
+      </div>
+      <div class="flex-shrink-0 w-64 p-4 border rounded">
+        <div class="bg-red-600 w-16 h-16 rounded mb-2"></div>
+        <h3 class="font-bold">Tech Updates</h3>
+        <p class="text-sm text-gray-600">Latest technology news and insights.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile Apps -->
+  <section id="apps" class="max-w-6xl mx-auto px-4 py-6">
+    <h2 class="text-xl font-semibold mb-4">Mobile Apps</h2>
+    <div class="flex gap-4 overflow-x-auto scroll-x pb-2">
+      <div class="flex-shrink-0 w-64 p-4 border rounded">
+        <div class="bg-red-600 w-16 h-16 rounded mb-2"></div>
+        <h3 class="font-bold">News App</h3>
+        <p class="text-sm text-gray-600">Get daily news on your phone.</p>
+      </div>
+      <div class="flex-shrink-0 w-64 p-4 border rounded">
+        <div class="bg-red-600 w-16 h-16 rounded mb-2"></div>
+        <h3 class="font-bold">The Plus App</h3>
+        <p class="text-sm text-gray-600">All our updates in one place.</p>
+      </div>
+    </div>
+    <div class="mt-6 text-center">
+      <p class="text-sm">For apps, visit us on</p>
+      <a href="https://play.google.com/store/apps/dev?id=YOUR_ID" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/512px-Google_Play_Store_badge_EN.svg.png" alt="Get it on Google Play" class="h-12 mx-auto mt-2">
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact & Footer -->
+  <footer id="contact" class="text-center py-6 px-4 text-sm">
+    <p class="mb-4">Contact us – <a href="mailto:theplusdigital@gmail.com" class="text-red-600">theplusdigital@gmail.com</a></p>
+    <hr class="border-t-2 border-red-500 my-4 w-3/4 mx-auto">
+    <p class="text-gray-500">© 2025 The Plus Digital. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
