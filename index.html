@@ -13,25 +13,19 @@
       color: #e11d48; /* Red text */
       font-family: 'Poppins', sans-serif;
     }
-    .scroll-x::-webkit-scrollbar {
-      height: 8px;
-    }
-    .scroll-x::-webkit-scrollbar-thumb {
-      background: #e11d48;
-      border-radius: 4px;
-    }
     a:hover {
       color: #000; /* black on hover */
     }
-    /* Scroll containers: red border at bottom */
-    .scroll-x {
+    /* Red border line under section items */
+    .items-container {
       border-bottom: 2px solid #e11d48;
+      padding-bottom: 0.5rem; /* 2 */
     }
     /* Black horizontal line between sections */
     hr.section-separator {
       border: none;
       border-top: 2px solid #000;
-      margin: 0 auto;
+      margin: 2rem auto 2rem auto;
       max-width: 6xl;
       width: 100%;
     }
@@ -63,19 +57,19 @@
   <!-- YouTube Channels -->
   <section id="youtube" class="max-w-6xl mx-auto px-4 py-6">
     <h2 class="text-xl font-semibold mb-4 text-red-600">Our YouTube Channels</h2>
-    <div class="flex gap-4 overflow-x-auto scroll-x pb-2">
-      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-white">
-        <img src="https://yt3.ggpht.com/ytc/AMLnZu-rmvKXNR4hMx3AJkX-j5Ix5g2WYcDJp2Bx_mJ2Jg=s88-c-k-c0x00ffffff-no-rj" alt="Plus Blocks" class="h-16 w-16 mb-2 rounded-sm object-cover" />
+    <div class="flex justify-center gap-8 items-container">
+      <div class="w-64 p-4 border border-red-600 rounded bg-white text-center">
+        <img src="https://yt3.ggpht.com/ytc/AMLnZu-rmvKXNR4hMx3AJkX-j5Ix5g2WYcDJp2Bx_mJ2Jg=s88-c-k-c0x00ffffff-no-rj" alt="Plus Blocks" class="h-16 w-16 mb-2 rounded-sm object-cover mx-auto" />
         <h3 class="font-bold text-red-600">Plus Blocks</h3>
         <p class="text-sm text-red-500">Building amazing designs with our blocks</p>
       </div>
-      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-white">
-        <img src="https://yt3.ggpht.com/ytc/AMLnZu8OYSMiFMm5oA-jdu-nfG4Ty5hQOEvpxETu2rX4=s88-c-k-c0x00ffffff-no-rj" alt="The Plus Blocks" class="h-16 w-16 mb-2 rounded-sm object-cover" />
+      <div class="w-64 p-4 border border-red-600 rounded bg-white text-center">
+        <img src="https://yt3.ggpht.com/ytc/AMLnZu8OYSMiFMm5oA-jdu-nfG4Ty5hQOEvpxETu2rX4=s88-c-k-c0x00ffffff-no-rj" alt="The Plus Blocks" class="h-16 w-16 mb-2 rounded-sm object-cover mx-auto" />
         <h3 class="font-bold text-red-600">The Plus Blocks</h3>
         <p class="text-sm text-red-500">Advanced plugins for the WordPress platform</p>
       </div>
-      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-white">
-        <img src="https://yt3.ggpht.com/ytc/AMLnZu_0sH6I9uHKyUpe1Q2ikgHYnpAyR9rvSKtrDgYZ=s88-c-k-c0x00ffffff-no-rj" alt="The Plus Apps" class="h-16 w-16 mb-2 rounded-sm object-cover" />
+      <div class="w-64 p-4 border border-red-600 rounded bg-white text-center">
+        <img src="https://yt3.ggpht.com/ytc/AMLnZu_0sH6I9uHKyUpe1Q2ikgHYnpAyR9rvSKtrDgYZ=s88-c-k-c0x00ffffff-no-rj" alt="The Plus Apps" class="h-16 w-16 mb-2 rounded-sm object-cover mx-auto" />
         <h3 class="font-bold text-red-600">The Plus Apps</h3>
         <p class="text-sm text-red-500">Various updates and tips on our apps</p>
       </div>
@@ -88,13 +82,13 @@
   <!-- Web Media -->
   <section id="webmedia" class="max-w-6xl mx-auto px-4 py-6">
     <h2 class="text-xl font-semibold mb-4 text-red-600">Web Media</h2>
-    <div class="flex gap-4 overflow-x-auto scroll-x pb-2">
-      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-white text-center">
+    <div class="flex justify-center gap-8 items-container">
+      <div class="w-64 p-4 border border-red-600 rounded bg-white text-center">
         <img src="https://via.placeholder.com/64x64/FF0000/FFFFFF?text=PN" alt="Plus News" class="h-16 w-16 mb-2 rounded-sm object-cover mx-auto" />
         <h3 class="font-bold text-red-600">Plus News</h3>
         <p class="text-sm text-red-500">Latest updates and news blog.</p>
       </div>
-      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-white text-center">
+      <div class="w-64 p-4 border border-red-600 rounded bg-white text-center">
         <img src="https://via.placeholder.com/64x64/FF0000/FFFFFF?text=TU" alt="Tech Updates" class="h-16 w-16 mb-2 rounded-sm object-cover mx-auto" />
         <h3 class="font-bold text-red-600">Tech Updates</h3>
         <p class="text-sm text-red-500">Latest technology news and insights.</p>
@@ -108,11 +102,9 @@
   <!-- Mobile Apps -->
   <section id="apps" class="max-w-6xl mx-auto px-4 py-6">
     <h2 class="text-xl font-semibold mb-4 text-red-600">Mobile Apps</h2>
-    <div class="flex gap-4 overflow-x-auto scroll-x pb-2">
+    <div class="flex justify-center gap-8 items-container">
       <!-- Play Store Button First -->
-      <div
-        class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-white text-center flex flex-col items-center justify-center"
-      >
+      <div class="w-64 p-4 border border-red-600 rounded bg-white text-center flex flex-col items-center justify-center">
         <a href="https://play.google.com/store/apps/dev?id=YOUR_ID" target="_blank" rel="noopener noreferrer">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/512px-Google_Play_Store_badge_EN.svg.png"
@@ -124,12 +116,12 @@
       </div>
 
       <!-- App Cards -->
-      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-white text-center">
+      <div class="w-64 p-4 border border-red-600 rounded bg-white text-center">
         <img src="https://via.placeholder.com/64x64/FF0000/FFFFFF?text=NA" alt="News App" class="h-16 w-16 mb-2 rounded-sm object-cover mx-auto" />
         <h3 class="font-bold text-red-600">News App</h3>
         <p class="text-sm text-red-500">Get daily news on your phone.</p>
       </div>
-      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-white text-center">
+      <div class="w-64 p-4 border border-red-600 rounded bg-white text-center">
         <img src="https://via.placeholder.com/64x64/FF0000/FFFFFF?text=TPA" alt="The Plus App" class="h-16 w-16 mb-2 rounded-sm object-cover mx-auto" />
         <h3 class="font-bold text-red-600">The Plus App</h3>
         <p class="text-sm text-red-500">All our updates in one place.</p>
