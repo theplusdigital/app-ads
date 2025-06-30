@@ -6,7 +6,10 @@
   <title>The Plus Digital</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Custom scroll for horizontal sections */
+    body {
+      background-color: #000; /* Black background */
+      color: #e11d48; /* Red text */
+    }
     .scroll-x::-webkit-scrollbar {
       height: 8px;
     }
@@ -14,99 +17,125 @@
       background: #e11d48;
       border-radius: 4px;
     }
+    a:hover {
+      color: #fff; /* white on hover */
+    }
+    /* Scroll containers: red border at bottom */
+    .scroll-x {
+      border-bottom: 2px solid #e11d48;
+    }
   </style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-black text-red-600">
 
   <!-- Header -->
-  <header class="w-full shadow-sm bg-white sticky top-0 z-50">
+  <header class="w-full shadow-sm bg-black sticky top-0 z-50 border-b border-red-600">
     <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-      <div class="flex items-center gap-2">
-        <div class="bg-red-600 text-white rounded-full p-2 font-bold text-lg">P</div>
-        <span class="text-lg font-semibold">THE PLUS DIGITAL</span>
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="Logo" class="h-10 w-10 rounded-sm object-cover" />
+        <span class="text-lg font-semibold tracking-wide text-red-500">THE PLUS DIGITAL</span>
       </div>
       <nav class="space-x-6 text-sm font-medium">
-        <a href="#youtube" class="hover:text-red-600">YouTube Channels</a>
-        <a href="#apps" class="hover:text-red-600">Apps</a>
-        <a href="#webmedia" class="hover:text-red-600">Web Media</a>
+        <a href="#youtube" class="hover:text-white">YouTube Channels</a>
+        <a href="#apps" class="hover:text-white">Apps</a>
+        <a href="#webmedia" class="hover:text-white">Web Media</a>
       </nav>
     </div>
   </header>
 
   <!-- Welcome Section -->
   <section class="max-w-4xl mx-auto px-4 py-10 text-center">
-    <h1 class="text-3xl font-bold mb-2">Welcome to The Plus Digital</h1>
-    <p class="text-gray-600 text-sm">Explore our content and applications across various platforms.</p>
+    <h1 class="text-3xl font-bold mb-2 text-red-500">Welcome to The Plus Digital</h1>
+    <p class="text-red-400 text-sm">Explore our content and applications across various platforms.</p>
   </section>
 
   <!-- YouTube Channels -->
   <section id="youtube" class="max-w-6xl mx-auto px-4 py-6">
-    <h2 class="text-xl font-semibold mb-4">Our YouTube Channels</h2>
+    <h2 class="text-xl font-semibold mb-4 text-red-500">Our YouTube Channels</h2>
     <div class="flex gap-4 overflow-x-auto scroll-x pb-2">
-      <div class="flex-shrink-0 w-64 p-4 border rounded">
-        <img src="https://www.svgrepo.com/show/349513/youtube.svg" alt="YT" class="h-10 mb-2">
-        <h3 class="font-bold">Plus Blocks</h3>
-        <p class="text-sm text-gray-600">Building amazing designs with our blocks</p>
+      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-black">
+        <img src="https://yt3.ggpht.com/ytc/AMLnZu-rmvKXNR4hMx3AJkX-j5Ix5g2WYcDJp2Bx_mJ2Jg=s88-c-k-c0x00ffffff-no-rj" alt="Plus Blocks" class="h-16 w-16 mb-2 rounded-sm object-cover" />
+        <h3 class="font-bold text-red-500">Plus Blocks</h3>
+        <p class="text-sm text-red-400">Building amazing designs with our blocks</p>
       </div>
-      <div class="flex-shrink-0 w-64 p-4 border rounded">
-        <img src="https://www.svgrepo.com/show/349513/youtube.svg" alt="YT" class="h-10 mb-2">
-        <h3 class="font-bold">The Plus Blocks</h3>
-        <p class="text-sm text-gray-600">Advanced plugins for the WordPress platform</p>
+      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-black">
+        <img src="https://yt3.ggpht.com/ytc/AMLnZu8OYSMiFMm5oA-jdu-nfG4Ty5hQOEvpxETu2rX4=s88-c-k-c0x00ffffff-no-rj" alt="The Plus Blocks" class="h-16 w-16 mb-2 rounded-sm object-cover" />
+        <h3 class="font-bold text-red-500">The Plus Blocks</h3>
+        <p class="text-sm text-red-400">Advanced plugins for the WordPress platform</p>
       </div>
-      <div class="flex-shrink-0 w-64 p-4 border rounded">
-        <img src="https://www.svgrepo.com/show/349513/youtube.svg" alt="YT" class="h-10 mb-2">
-        <h3 class="font-bold">The Plus Apps</h3>
-        <p class="text-sm text-gray-600">Various updates and tips on our apps</p>
+      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-black">
+        <img src="https://yt3.ggpht.com/ytc/AMLnZu_0sH6I9uHKyUpe1Q2ikgHYnpAyR9rvSKtrDgYZ=s88-c-k-c0x00ffffff-no-rj" alt="The Plus Apps" class="h-16 w-16 mb-2 rounded-sm object-cover" />
+        <h3 class="font-bold text-red-500">The Plus Apps</h3>
+        <p class="text-sm text-red-400">Various updates and tips on our apps</p>
       </div>
     </div>
   </section>
 
   <!-- Web Media -->
   <section id="webmedia" class="max-w-6xl mx-auto px-4 py-6">
-    <h2 class="text-xl font-semibold mb-4">Web Media</h2>
+    <h2 class="text-xl font-semibold mb-4 text-red-500">Web Media</h2>
     <div class="flex gap-4 overflow-x-auto scroll-x pb-2">
-      <div class="flex-shrink-0 w-64 p-4 border rounded">
-        <div class="bg-red-600 w-16 h-16 rounded mb-2"></div>
-        <h3 class="font-bold">Plus News</h3>
-        <p class="text-sm text-gray-600">Latest updates and news blog.</p>
+      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-black text-center">
+        <img src="https://via.placeholder.com/64x64/FF0000/000000?text=PN" alt="Plus News" class="h-16 w-16 mb-2 rounded-sm object-cover mx-auto" />
+        <h3 class="font-bold text-red-500">Plus News</h3>
+        <p class="text-sm text-red-400">Latest updates and news blog.</p>
       </div>
-      <div class="flex-shrink-0 w-64 p-4 border rounded">
-        <div class="bg-red-600 w-16 h-16 rounded mb-2"></div>
-        <h3 class="font-bold">Tech Updates</h3>
-        <p class="text-sm text-gray-600">Latest technology news and insights.</p>
+      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-black text-center">
+        <img src="https://via.placeholder.com/64x64/FF0000/000000?text=TU" alt="Tech Updates" class="h-16 w-16 mb-2 rounded-sm object-cover mx-auto" />
+        <h3 class="font-bold text-red-500">Tech Updates</h3>
+        <p class="text-sm text-red-400">Latest technology news and insights.</p>
       </div>
     </div>
   </section>
 
   <!-- Mobile Apps -->
   <section id="apps" class="max-w-6xl mx-auto px-4 py-6">
-    <h2 class="text-xl font-semibold mb-4">Mobile Apps</h2>
+    <h2 class="text-xl font-semibold mb-4 text-red-500">Mobile Apps</h2>
     <div class="flex gap-4 overflow-x-auto scroll-x pb-2">
-      <div class="flex-shrink-0 w-64 p-4 border rounded">
-        <div class="bg-red-600 w-16 h-16 rounded mb-2"></div>
-        <h3 class="font-bold">News App</h3>
-        <p class="text-sm text-gray-600">Get daily news on your phone.</p>
+      <!-- Play Store Button First -->
+      <div
+        class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-black text-center flex flex-col items-center justify-center"
+      >
+        <a href="https://play.google.com/store/apps/dev?id=YOUR_ID" target="_blank" rel="noopener noreferrer">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/512px-Google_Play_Store_badge_EN.svg.png"
+            alt="Get it on Google Play"
+            class="h-12 mb-2 object-contain"
+          />
+        </a>
+        <p class="text-sm text-red-400">For apps, visit us on Google Play Store</p>
       </div>
-      <div class="flex-shrink-0 w-64 p-4 border rounded">
-        <div class="bg-red-600 w-16 h-16 rounded mb-2"></div>
-        <h3 class="font-bold">The Plus App</h3>
-        <p class="text-sm text-gray-600">All our updates in one place.</p>
+
+      <!-- App Cards -->
+      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-black text-center">
+        <img src="https://via.placeholder.com/64x64/FF0000/000000?text=NA" alt="News App" class="h-16 w-16 mb-2 rounded-sm object-cover mx-auto" />
+        <h3 class="font-bold text-red-500">News App</h3>
+        <p class="text-sm text-red-400">Get daily news on your phone.</p>
       </div>
-    </div>
-    <div class="mt-6 text-center">
-      <p class="text-sm">For apps, visit us on</p>
-      <a href="https://play.google.com/store/apps/dev?id=YOUR_ID" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/512px-Google_Play_Store_badge_EN.svg.png" alt="Get it on Google Play" class="h-12 mx-auto mt-2">
-      </a>
+      <div class="flex-shrink-0 w-64 p-4 border border-red-600 rounded bg-black text-center">
+        <img src="https://via.placeholder.com/64x64/FF0000/000000?text=TPA" alt="The Plus App" class="h-16 w-16 mb-2 rounded-sm object-cover mx-auto" />
+        <h3 class="font-bold text-red-500">The Plus App</h3>
+        <p class="text-sm text-red-400">All our updates in one place.</p>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-white border-t border-gray-200 py-6 px-4 text-sm">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-gray-600">
+  <footer class="bg-black border-t border-red-600 py-6 px-4 text-sm">
+    <div
+      class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-red-400"
+    >
       <p>© 2025 The Plus Digital. All rights reserved.</p>
-      <a href="mailto:theplusdigital@gmail.com" class="flex items-center gap-2 text-red-600 hover:underline">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M2 4a2 2 0 012-2h16a2 2 0 012 2v1l-10 6L2 5V4zm0 3.25v12a2 2 0 002 2h16a2 2 0 002-2v-12l-10 6-10-6z"/></svg>
+      <a href="mailto:theplusdigital@gmail.com" class="flex items-center gap-2 text-red-500 hover:underline">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 fill-current"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M2 4a2 2 0 012-2h16a2 2 0 012 2v1l-10 6L2 5V4zm0 3.25v12a2 2 0 002 2h16a2 2 0 002-2v-12l-10 6-10-6z"
+          />
+        </svg>
         theplusdigital@gmail.com
       </a>
     </div>
