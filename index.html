@@ -40,6 +40,88 @@
     .dot.active {
       opacity: 1;
     }
+
+    /* Hamburger Menu Animations */
+    .hamburger {
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      transition: all 0.25s;
+      position: relative;
+    }
+
+    .hamburger-top,
+    .hamburger-middle,
+    .hamburger-bottom {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 24px;
+      height: 2px;
+      background: #000;
+      transform: rotate(0);
+      transition: all 0.5s;
+    }
+
+    .hamburger-middle {
+      transform: translateY(7px);
+    }
+
+    .hamburger-bottom {
+      transform: translateY(14px);
+    }
+
+    .open .hamburger-top {
+      transform: rotate(45deg) translateY(6px) translateX(6px);
+    }
+
+    .open .hamburger-middle {
+      display: none;
+    }
+
+    .open .hamburger-bottom {
+      transform: rotate(-45deg) translateY(6px) translateX(-6px);
+    }
+
+    /* Mobile Menu Styles */
+    .mobile-menu {
+      transition: all 0.3s ease-in-out;
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    .mobile-menu.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    /* Fade in animation */
+    .animate-fade-in {
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Overlay for mobile menu */
+    .menu-overlay {
+      transition: all 0.3s ease-in-out;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .menu-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
   </style>
 </head>
 <body class="bg-white text-black" id="top">
@@ -53,12 +135,62 @@
         <span class="text-lg font-bold group-hover:text-red-600 transition">THE PLUS DIGITAL</span>
       </a>
 
-      <!-- Navigation -->
+      <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-6 text-sm font-semibold">
         <a href="#youtube" class="hover:text-red-600 transition border-b-2 border-transparent hover:border-red-600">YouTube Channels</a>
         <a href="#webmedia" class="hover:text-red-600 transition border-b-2 border-transparent hover:border-red-600">Web Media</a>
         <a href="#apps" class="hover:text-red-600 transition border-b-2 border-transparent hover:border-red-600">Apps</a>
       </nav>
+
+      <!-- Mobile Hamburger Menu -->
+      <div class="md:hidden" id="hamburger">
+        <div class="hamburger">
+          <div class="hamburger-top"></div>
+          <div class="hamburger-middle"></div>
+          <div class="hamburger-bottom"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="menu-overlay fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden" id="menuOverlay"></div>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-50 md:hidden" id="mobileMenu">
+      <div class="flex flex-col h-full">
+        <!-- Mobile Menu Header -->
+        <div class="flex justify-between items-center p-4 border-b-2 border-red-600">
+          <span class="font-bold text-lg">Menu</span>
+          <div class="hamburger open" id="mobileClose">
+            <div class="hamburger-top"></div>
+            <div class="hamburger-middle"></div>
+            <div class="hamburger-bottom"></div>
+          </div>
+        </div>
+        
+        <!-- Mobile Menu Links -->
+        <nav class="flex flex-col flex-1 p-4 space-y-4">
+          <a href="#youtube" class="block py-3 px-4 text-sm font-semibold hover:text-red-600 hover:bg-red-50 rounded transition border-l-4 border-transparent hover:border-red-600 mobile-menu-link">
+            YouTube Channels
+          </a>
+          <a href="#webmedia" class="block py-3 px-4 text-sm font-semibold hover:text-red-600 hover:bg-red-50 rounded transition border-l-4 border-transparent hover:border-red-600 mobile-menu-link">
+            Web Media
+          </a>
+          <a href="#apps" class="block py-3 px-4 text-sm font-semibold hover:text-red-600 hover:bg-red-50 rounded transition border-l-4 border-transparent hover:border-red-600 mobile-menu-link">
+            Apps
+          </a>
+        </nav>
+
+        <!-- Mobile Menu Footer -->
+        <div class="p-4 border-t border-gray-200">
+          <a href="mailto:theplusdigital@gmail.com" class="flex items-center gap-2 text-red-600 hover:underline transition text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+              <path d="M2 4a2 2 0 012-2h16a2 2 0 012 2v1l-10 6L2 5V4zm0 3.25v12a2 2 0 002 2h16a2 2 0 002-2v-12l-10 6-10-6z"/>
+            </svg>
+            Contact Us
+          </a>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -213,8 +345,9 @@
     </div>
   </footer>
 
-  <!-- ================= SCRIPT FOR SLIDES ================= -->
+  <!-- ================= SCRIPT FOR SLIDES & MOBILE MENU ================= -->
   <script>
+    // Existing slide functionality
     function showSlide(id, index) {
       const container = document.getElementById(id);
       const slides = container.querySelectorAll('.slide');
@@ -223,6 +356,55 @@
       slides.forEach((slide, i) => slide.classList.toggle('hidden', i !== index));
       dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
     }
+
+    // Mobile Menu Functionality
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const mobileClose = document.getElementById('mobileClose');
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+    // Toggle mobile menu
+    function toggleMobileMenu() {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('show');
+      menuOverlay.classList.toggle('show');
+      document.body.style.overflow = mobileMenu.classList.contains('show') ? 'hidden' : 'auto';
+    }
+
+    // Close mobile menu
+    function closeMobileMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('show');
+      menuOverlay.classList.remove('show');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Event listeners
+    hamburger.addEventListener('click', toggleMobileMenu);
+    mobileClose.addEventListener('click', closeMobileMenu);
+    menuOverlay.addEventListener('click', closeMobileMenu);
+
+    // Close menu when clicking on navigation links
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeMobileMenu();
+      });
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('show')) {
+        closeMobileMenu();
+      }
+    });
+
+    // Close menu on window resize to desktop size
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768 && mobileMenu.classList.contains('show')) {
+        closeMobileMenu();
+      }
+    });
   </script>
 
 </body>
