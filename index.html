@@ -5,164 +5,214 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Plus Digital</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
-
-  <!-- Poppins Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- =============== FAVICON & FONTS =============== -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- =============== STYLING =============== -->
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #fff;
-      color: #e11d48;
+      color: #1f1f1f;
       scroll-behavior: smooth;
     }
     .section-divider {
       border: none;
       border-top: 2px solid #000;
-      margin: 2.5rem auto;
-      max-width: 1200px;
+      margin: 3rem auto;
       width: 90%;
+      max-width: 1200px;
     }
-    .footer-content a, .footer-content p {
-      white-space: nowrap;
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .dot {
+      height: 10px;
+      width: 10px;
+      border-radius: 9999px;
+      background-color: #e11d48;
+      opacity: 0.4;
+    }
+    .dot.active {
+      opacity: 1;
     }
   </style>
 </head>
 <body id="top">
 
-  <!-- ================= HEADER ================= -->
-  <header class="w-full shadow-lg bg-white sticky top-0 z-50 border-b-2 border-red-600">
+  <!-- =============== HEADER =============== -->
+  <header class="sticky top-0 z-50 bg-white border-b-2 border-red-600 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <!-- Logo redirects to top -->
-      <a href="#top" class="flex items-center gap-3 logo cursor-pointer">
-        <img src="logo.png" alt="Logo" class="h-10 w-10 rounded-lg shadow-sm" />
-        <span class="text-lg font-bold">THE PLUS DIGITAL</span>
+      <!-- Logo: Clicking scrolls to top -->
+      <a href="#top" class="flex items-center gap-3">
+        <img src="logo.png" alt="Logo" class="h-10 w-10 rounded shadow" />
+        <span class="text-lg font-bold text-black">THE PLUS DIGITAL</span>
       </a>
 
       <!-- Navigation Menu -->
-      <nav class="hidden md:flex space-x-6 text-sm font-medium">
-        <a href="#youtube" class="nav-link">YouTube Channels</a>
-        <a href="#webmedia" class="nav-link">Web Media</a>
-        <a href="#apps" class="nav-link">Apps</a>
+      <nav class="hidden md:flex space-x-6 text-sm font-semibold text-black">
+        <a href="#youtube" class="hover:text-red-600">YouTube Channels</a>
+        <a href="#webmedia" class="hover:text-red-600">Web Media</a>
+        <a href="#apps" class="hover:text-red-600">Apps</a>
       </nav>
     </div>
   </header>
 
-  <!-- ================= WELCOME SECTION ================= -->
-  <section class="max-w-5xl mx-auto px-4 py-12 text-center">
-    <h1 class="text-3xl font-bold mb-4 text-gray-800">Welcome to The Plus Digital</h1>
+  <!-- =============== WELCOME SECTION =============== -->
+  <section class="max-w-4xl mx-auto px-4 py-10 text-center">
+    <h1 class="text-3xl font-bold mb-2 text-gray-800">Welcome to The Plus Digital</h1>
     <p class="text-gray-600 text-sm">Explore our content and applications across various platforms.</p>
   </section>
 
-  <!-- ================= YOUTUBE CHANNELS ================= -->
+  <!-- =============== YOUTUBE CHANNEL SECTION =============== -->
   <section id="youtube" class="py-8">
     <div class="max-w-7xl mx-auto px-4">
-      <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Our YouTube Channels</h2>
-      <div class="grid md:grid-cols-3 gap-6 text-center">
-        <!-- YouTube Channel 1 -->
+      <!-- Section Title -->
+      <h2 class="text-2xl font-bold text-left text-gray-800 mb-6">YouTube Channels</h2>
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+
+        <!-- Left: Carousel -->
         <div>
-          <img src="yt1.png" alt="Plus Blocks" class="h-20 w-20 rounded-xl mx-auto mb-2" />
-          <h3 class="font-bold">
-            <a href="https://youtube.com/channel/plusblocks" target="_blank">Plus Blocks</a>
-          </h3>
-          <p class="text-sm text-gray-600">Building amazing designs with our blocks</p>
+          <div class="w-full rounded-lg overflow-hidden shadow border p-4">
+            <div id="youtube-carousel" class="carousel">
+              <!-- Slide 1 -->
+              <div class="slide">
+                <img src="yt1.png" alt="Channel 1" class="h-20 mb-3 rounded" />
+                <h3 class="font-bold text-lg">
+                  <a href="https://youtube.com/channel/plusblocks" target="_blank">Plus Blocks</a>
+                </h3>
+                <p class="text-sm text-gray-600">Design tools and UI experiments.</p>
+              </div>
+              <!-- Slide 2 -->
+              <div class="slide hidden">
+                <img src="yt2.png" alt="Channel 2" class="h-20 mb-3 rounded" />
+                <h3 class="font-bold text-lg">
+                  <a href="https://youtube.com/channel/theplusapps" target="_blank">The Plus Apps</a>
+                </h3>
+                <p class="text-sm text-gray-600">Learn app dev with our tutorials.</p>
+              </div>
+            </div>
+            <!-- Dots -->
+            <div class="carousel-dots mt-2">
+              <div class="dot active" onclick="showSlide('youtube-carousel', 0)"></div>
+              <div class="dot" onclick="showSlide('youtube-carousel', 1)"></div>
+            </div>
+          </div>
         </div>
-        <!-- YouTube Channel 2 -->
-        <div>
-          <img src="yt2.png" alt="The Plus Blocks" class="h-20 w-20 rounded-xl mx-auto mb-2" />
-          <h3 class="font-bold">
-            <a href="https://youtube.com/channel/theplusblocks" target="_blank">The Plus Blocks</a>
-          </h3>
-          <p class="text-sm text-gray-600">Advanced plugins for WordPress</p>
-        </div>
-        <!-- YouTube Channel 3 -->
-        <div>
-          <img src="yt3.png" alt="The Plus Apps" class="h-20 w-20 rounded-xl mx-auto mb-2" />
-          <h3 class="font-bold">
-            <a href="https://youtube.com/channel/theplusapps" target="_blank">The Plus Apps</a>
-          </h3>
-          <p class="text-sm text-gray-600">Tips & updates on our apps</p>
+
+        <!-- Right: Info Box -->
+        <div class="text-center md:text-left">
+          <img src="youtube-icon.png" alt="YouTube" class="h-12 mx-auto md:mx-0 mb-2" />
+          <p class="text-gray-600 text-sm max-w-sm mx-auto md:mx-0">We run multiple YouTube channels sharing creative digital content, tutorials, and news.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= DIVIDER ================= -->
   <hr class="section-divider" />
 
-  <!-- ================= WEB MEDIA ================= -->
+  <!-- =============== WEB MEDIA SECTION =============== -->
   <section id="webmedia" class="py-8">
     <div class="max-w-7xl mx-auto px-4">
-      <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Web Media</h2>
-      <div class="grid md:grid-cols-2 gap-6 text-center">
-        <!-- Website 1 -->
-        <div>
-          <img src="web1.png" alt="Plus News" class="h-20 w-20 rounded-xl mx-auto mb-2" />
-          <h3 class="font-bold">
-            <a href="https://plusnews.com" target="_blank">Plus News</a>
-          </h3>
-          <p class="text-sm text-gray-600">Latest updates and news blog</p>
+      <h2 class="text-2xl font-bold text-left text-gray-800 mb-6">Web Media</h2>
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+
+        <!-- Left: Info Box -->
+        <div class="text-center md:text-left">
+          <img src="web-icon.png" alt="Web Media" class="h-12 mx-auto md:mx-0 mb-2" />
+          <p class="text-gray-600 text-sm max-w-sm mx-auto md:mx-0">Our websites cover everything from tech blogs to educational resources and latest updates.</p>
         </div>
-        <!-- Website 2 -->
+
+        <!-- Right: Carousel -->
         <div>
-          <img src="web2.png" alt="Tech Updates" class="h-20 w-20 rounded-xl mx-auto mb-2" />
-          <h3 class="font-bold">
-            <a href="https://techupdates.com" target="_blank">Tech Updates</a>
-          </h3>
-          <p class="text-sm text-gray-600">Technology insights and trends</p>
+          <div class="w-full rounded-lg overflow-hidden shadow border p-4">
+            <div id="web-carousel" class="carousel">
+              <!-- Slide 1 -->
+              <div class="slide">
+                <img src="web1.png" alt="Site 1" class="h-20 mb-3 rounded" />
+                <h3 class="font-bold text-lg">
+                  <a href="https://plusnews.com" target="_blank">Plus News</a>
+                </h3>
+                <p class="text-sm text-gray-600">Get latest news and insights.</p>
+              </div>
+              <!-- Slide 2 -->
+              <div class="slide hidden">
+                <img src="web2.png" alt="Site 2" class="h-20 mb-3 rounded" />
+                <h3 class="font-bold text-lg">
+                  <a href="https://techupdates.com" target="_blank">Tech Updates</a>
+                </h3>
+                <p class="text-sm text-gray-600">Everything tech in one place.</p>
+              </div>
+            </div>
+            <!-- Dots -->
+            <div class="carousel-dots mt-2">
+              <div class="dot active" onclick="showSlide('web-carousel', 0)"></div>
+              <div class="dot" onclick="showSlide('web-carousel', 1)"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= DIVIDER ================= -->
   <hr class="section-divider" />
 
-  <!-- ================= MOBILE APPS ================= -->
+  <!-- =============== MOBILE APPS SECTION =============== -->
   <section id="apps" class="py-8">
     <div class="max-w-7xl mx-auto px-4">
-      <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Mobile Apps</h2>
-      <div class="grid md:grid-cols-2 gap-6 text-center">
-        <!-- App 1 -->
+      <h2 class="text-2xl font-bold text-left text-gray-800 mb-6">Mobile Apps</h2>
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+
+        <!-- Left: Carousel -->
         <div>
-          <img src="app1.png" alt="News App" class="h-20 w-20 rounded-xl mx-auto mb-2" />
-          <h3 class="font-bold">
-            <a href="https://play.google.com/store/apps/details?id=newsapp" target="_blank">News App</a>
-          </h3>
-          <p class="text-sm text-gray-600">Get daily news on your phone</p>
+          <div class="w-full rounded-lg overflow-hidden shadow border p-4">
+            <div id="apps-carousel" class="carousel">
+              <!-- Slide 1 -->
+              <div class="slide">
+                <img src="app1.png" alt="App 1" class="h-20 mb-3 rounded" />
+                <h3 class="font-bold text-lg">
+                  <a href="https://play.google.com/store/apps/details?id=app1" target="_blank">The Day Info</a>
+                </h3>
+                <p class="text-sm text-gray-600">Daily facts in one place.</p>
+              </div>
+              <!-- Slide 2 -->
+              <div class="slide hidden">
+                <img src="app2.png" alt="App 2" class="h-20 mb-3 rounded" />
+                <h3 class="font-bold text-lg">
+                  <a href="https://play.google.com/store/apps/details?id=app2" target="_blank">Plus Tools</a>
+                </h3>
+                <p class="text-sm text-gray-600">Simple utility apps.</p>
+              </div>
+            </div>
+            <!-- Dots -->
+            <div class="carousel-dots mt-2">
+              <div class="dot active" onclick="showSlide('apps-carousel', 0)"></div>
+              <div class="dot" onclick="showSlide('apps-carousel', 1)"></div>
+            </div>
+          </div>
         </div>
-        <!-- App 2 -->
-        <div>
-          <img src="app2.png" alt="The Plus App" class="h-20 w-20 rounded-xl mx-auto mb-2" />
-          <h3 class="font-bold">
-            <a href="https://play.google.com/store/apps/details?id=theplusapp" target="_blank">The Plus App</a>
-          </h3>
-          <p class="text-sm text-gray-600">All our updates in one place</p>
+
+        <!-- Right: Play Store Badge + Text -->
+        <div class="text-center md:text-left">
+          <a href="https://play.google.com/store/apps/dev?id=YOUR_ID" target="_blank">
+            <img src="google-play-badge.png" alt="Get it on Google Play" class="h-12 mx-auto md:mx-0 mb-2" />
+          </a>
+          <p class="text-gray-600 text-sm max-w-sm mx-auto md:mx-0">Discover all our Android apps built to educate and empower.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="bg-gray-50 border-t-2 border-gray-200 py-6 px-4 text-sm mt-8">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-      
-      <!-- Play Store Link -->
-      <a href="https://play.google.com/store/apps/dev?id=YOUR_ID" target="_blank" class="flex items-center gap-2 text-gray-600 hover:text-red-600">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-        </svg>
-        Play Store
-      </a>
-
-      <!-- Copyright -->
-      <p class="text-gray-600 text-center">© 2025 The Plus Digital. All rights reserved.</p>
-
-      <!-- Email Link -->
-      <a href="mailto:theplusdigital@gmail.com" target="_blank" class="flex items-center gap-2 text-red-600 hover:underline">
+  <!-- =============== FOOTER =============== -->
+  <footer class="bg-white border-t-2 border-gray-200 py-6 px-4 text-sm">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-gray-600">
+      <p>© 2025 The Plus Digital. All rights reserved.</p>
+      <a href="mailto:theplusdigital@gmail.com" class="flex items-center gap-2 text-red-600 hover:underline">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current" viewBox="0 0 24 24">
           <path d="M2 4a2 2 0 012-2h16a2 2 0 012 2v1l-10 6L2 5V4zm0 3.25v12a2 2 0 002 2h16a2 2 0 002-2v-12l-10 6-10-6z"/>
         </svg>
@@ -170,6 +220,18 @@
       </a>
     </div>
   </footer>
+
+  <!-- =============== CAROUSEL SCRIPT =============== -->
+  <script>
+    function showSlide(id, index) {
+      const container = document.getElementById(id);
+      const slides = container.querySelectorAll('.slide');
+      const dots = container.parentElement.querySelectorAll('.dot');
+
+      slides.forEach((s, i) => s.classList.toggle('hidden', i !== index));
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    }
+  </script>
 
 </body>
 </html>
