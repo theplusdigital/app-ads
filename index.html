@@ -2,31 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Plus Digital</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png" />
 
-  <!-- Google Font: Poppins -->
+  <!-- Google Fonts: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Tailwind Config for animation -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
+          fontFamily: { poppins: ['Poppins', 'sans-serif'] },
           animation: {
-            fade: 'fadeIn 0.8s ease-in-out',
+            'fade-in': 'fadeIn 1s ease-in-out',
           },
           keyframes: {
             fadeIn: {
               '0%': { opacity: '0' },
-              '100%': { opacity: '1' }
-            }
+              '100%': { opacity: '1' },
+            },
           }
         }
       }
@@ -38,187 +37,172 @@
       font-family: 'Poppins', sans-serif;
     }
     .section-divider {
-      border-top: 2px solid black;
+      border-top: 2px solid #000;
       margin: 2.5rem auto;
+      width: 90%;
       max-width: 1200px;
     }
-    .scroll-x {
-      overflow-x: auto;
-      scroll-behavior: smooth;
-    }
-    .scroll-x::-webkit-scrollbar {
+    .hide-scrollbar::-webkit-scrollbar {
       display: none;
     }
-    .dot {
-      width: 10px;
-      height: 10px;
-      background-color: #e11d48;
-      border-radius: 9999px;
-      opacity: 0.4;
-    }
-    .dot.active {
-      opacity: 1;
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
   </style>
 </head>
-<body class="bg-white text-gray-800 scroll-smooth">
 
-  <!-- ========== HEADER ========== -->
-  <header class="bg-white shadow sticky top-0 z-50 border-b-2 border-red-600">
-    <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">
-      
-      <!-- Left: Logo -->
+<body class="bg-white text-black" id="top">
+
+  <!-- ====================== HEADER ====================== -->
+  <header class="sticky top-0 z-50 bg-white border-b-2 border-red-600 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+
+      <!-- Logo with scroll to top -->
       <a href="#top" class="flex items-center gap-3 group">
-        <img src="logo.png" alt="Logo" class="h-10 w-10 rounded shadow group-hover:rotate-3 duration-300" />
-        <span class="text-lg font-bold group-hover:text-red-600">THE PLUS DIGITAL</span>
+        <img src="logo.png" alt="Logo" class="h-10 w-10 rounded shadow group-hover:rotate-3 transition" />
+        <span class="text-lg font-bold group-hover:text-red-600 transition">THE PLUS DIGITAL</span>
       </a>
 
-      <!-- Right: Menu for desktop -->
-      <nav class="hidden md:flex space-x-6 font-semibold text-sm">
-        <a href="#youtube" class="hover:text-red-600">YouTube Channels</a>
-        <a href="#apps" class="hover:text-red-600">Apps</a>
-        <a href="#webmedia" class="hover:text-red-600">Web Media</a>
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex space-x-6 text-sm font-semibold">
+        <a href="#youtube" class="hover:text-red-600 transition">YouTube Channels</a>
+        <a href="#apps" class="hover:text-red-600 transition">Apps</a>
+        <a href="#webmedia" class="hover:text-red-600 transition">Web Media</a>
       </nav>
 
-      <!-- Hamburger icon for mobile -->
+      <!-- Hamburger Menu for Mobile -->
       <button id="menu-btn" class="md:hidden text-red-600">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
           <path d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
 
-    <!-- Mobile Menu Dropdown -->
-    <div id="mobile-menu" class="hidden md:hidden text-center bg-white border-t border-gray-200">
-      <a href="#youtube" class="block py-2 font-semibold hover:text-red-600" onclick="toggleMenu()">YouTube Channels</a>
-      <a href="#apps" class="block py-2 font-semibold hover:text-red-600" onclick="toggleMenu()">Apps</a>
-      <a href="#webmedia" class="block py-2 font-semibold hover:text-red-600" onclick="toggleMenu()">Web Media</a>
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200 text-center py-4">
+      <a href="#youtube" class="block py-2 text-sm font-semibold hover:text-red-600" onclick="toggleMenu()">YouTube Channels</a>
+      <a href="#apps" class="block py-2 text-sm font-semibold hover:text-red-600" onclick="toggleMenu()">Apps</a>
+      <a href="#webmedia" class="block py-2 text-sm font-semibold hover:text-red-600" onclick="toggleMenu()">Web Media</a>
     </div>
   </header>
 
-  <!-- ========== WELCOME SECTION ========== -->
-  <section class="max-w-5xl mx-auto px-4 py-12 text-center animate-fade" id="top">
-    <h1 class="text-3xl font-bold mb-3">Welcome to The Plus Digital</h1>
-    <p class="text-sm text-gray-600">Explore our YouTube channels, apps, and websites under one roof.</p>
+  <!-- ====================== WELCOME ====================== -->
+  <section class="max-w-4xl mx-auto px-4 py-12 text-center animate-fade-in">
+    <h1 class="text-3xl font-bold mb-2 text-gray-800">Welcome to The Plus Digital</h1>
+    <p class="text-gray-600 text-sm">Explore our content and applications across various platforms.</p>
   </section>
 
-  <!-- ========== SECTION TEMPLATE START ========== -->
+  <!-- ====================== SECTION: YouTube Channels ====================== -->
+  <section id="youtube" class="py-10 px-4 max-w-7xl mx-auto">
+    <h2 class="text-2xl font-bold mb-4 text-left text-gray-800">YouTube Channels</h2>
+    <div class="flex flex-col md:flex-row gap-6 items-center">
 
-  <!-- YouTube Channels -->
-  <section id="youtube" class="max-w-7xl mx-auto px-4 py-8">
-    <h2 class="text-xl font-bold mb-4">YouTube Channels</h2>
-    <div class="grid md:grid-cols-2 gap-8 items-center">
-      
-      <!-- Left: Horizontal Scrollable Channel Cards -->
-      <div class="scroll-x flex gap-4">
+      <!-- LEFT: Slider -->
+      <div class="w-full md:w-2/3 overflow-x-auto hide-scrollbar flex space-x-6">
         <!-- Slide 1 -->
-        <div class="min-w-[240px] flex-shrink-0 bg-gray-50 p-4 rounded shadow hover:scale-105 transition">
-          <img src="yt1.png" alt="Channel Logo" class="h-16 w-16 mx-auto mb-2 rounded-full" />
-          <h3 class="text-center font-semibold text-sm">
-            <a href="https://youtube.com/@plusblocks" target="_blank" class="hover:underline">Plus Blocks</a>
+        <div class="min-w-full md:min-w-[300px] bg-gray-50 p-4 rounded shadow hover:scale-105 transition">
+          <img src="yt1.png" alt="YT Channel" class="h-20 w-20 mx-auto mb-2" />
+          <h3 class="text-center font-semibold">
+            <a href="https://youtube.com/channel/plusblocks" target="_blank">Plus Blocks</a>
           </h3>
-          <p class="text-xs text-gray-500 text-center">Design tutorials & tools</p>
+          <p class="text-center text-sm text-gray-600">Awesome blocks and layouts</p>
         </div>
-
         <!-- Slide 2 -->
-        <div class="min-w-[240px] flex-shrink-0 bg-gray-50 p-4 rounded shadow hover:scale-105 transition">
-          <img src="yt2.png" alt="Channel Logo" class="h-16 w-16 mx-auto mb-2 rounded-full" />
-          <h3 class="text-center font-semibold text-sm">
-            <a href="https://youtube.com/@theplusapps" target="_blank" class="hover:underline">The Plus Apps</a>
+        <div class="min-w-full md:min-w-[300px] bg-gray-50 p-4 rounded shadow hover:scale-105 transition">
+          <img src="yt2.png" alt="YT Channel 2" class="h-20 w-20 mx-auto mb-2" />
+          <h3 class="text-center font-semibold">
+            <a href="https://youtube.com/channel/theplusblocks" target="_blank">The Plus Blocks</a>
           </h3>
-          <p class="text-xs text-gray-500 text-center">App updates & tutorials</p>
+          <p class="text-center text-sm text-gray-600">Advanced plugin tutorials</p>
         </div>
       </div>
 
-      <!-- Right: Icon & Description -->
-      <div class="text-center md:text-left space-y-4">
-        <img src="youtube-icon.png" alt="YouTube Icon" class="h-10 mx-auto md:mx-0" />
-        <p class="text-sm text-gray-600">We manage multiple YouTube channels to share helpful content, tutorials, and product demos.</p>
+      <!-- RIGHT: Logo + Info -->
+      <div class="w-full md:w-1/3 text-center md:text-left">
+        <img src="yt-logo.png" alt="YT Logo" class="h-12 mx-auto md:mx-0 mb-2" />
+        <p class="text-gray-600 text-sm">We manage multiple educational and tech YouTube channels under The Plus Digital banner.</p>
       </div>
     </div>
   </section>
 
-  <!-- Divider -->
   <hr class="section-divider" />
 
-  <!-- Mobile Apps -->
-  <section id="apps" class="max-w-7xl mx-auto px-4 py-8">
-    <h2 class="text-xl font-bold mb-4">Mobile Apps</h2>
-    <div class="grid md:grid-cols-2 gap-8 items-center">
+  <!-- ====================== SECTION: Mobile Apps ====================== -->
+  <section id="apps" class="py-10 px-4 max-w-7xl mx-auto">
+    <h2 class="text-2xl font-bold mb-4 text-left text-gray-800">Mobile Apps</h2>
+    <div class="flex flex-col md:flex-row-reverse gap-6 items-center">
 
-      <!-- Left: Google Play Badge and Description -->
-      <div class="text-center md:text-left space-y-4">
+      <!-- LEFT: App Store Logo + Info -->
+      <div class="w-full md:w-1/3 text-center md:text-right">
         <a href="https://play.google.com/store/apps/dev?id=YOUR_ID" target="_blank">
-          <img src="google-play-badge.png" alt="Get it on Google Play" class="h-10 mx-auto md:mx-0 hover:scale-105 transition" />
+          <img src="playstore.png" alt="Google Play" class="h-12 mx-auto md:ml-auto mb-2 hover:scale-105 transition" />
         </a>
-        <p class="text-sm text-gray-600">Explore our Android apps for news, daily info, and learning tools – all on Google Play.</p>
+        <p class="text-gray-600 text-sm">Explore our Android apps crafted with purpose and simplicity.</p>
       </div>
 
-      <!-- Right: App Cards (Slider) -->
-      <div class="scroll-x flex gap-4">
-        <!-- App 1 -->
-        <div class="min-w-[240px] flex-shrink-0 bg-gray-50 p-4 rounded shadow hover:scale-105 transition">
-          <img src="app1.png" alt="App Logo" class="h-16 w-16 mx-auto mb-2 rounded" />
-          <h3 class="text-center font-semibold text-sm">
-            <a href="https://play.google.com/store/apps/details?id=com.example" target="_blank" class="hover:underline">The Day Info</a>
+      <!-- RIGHT: Slider -->
+      <div class="w-full md:w-2/3 overflow-x-auto hide-scrollbar flex space-x-6">
+        <!-- Slide 1 -->
+        <div class="min-w-full md:min-w-[300px] bg-gray-50 p-4 rounded shadow hover:scale-105 transition">
+          <img src="app1.png" alt="App 1" class="h-20 w-20 mx-auto mb-2" />
+          <h3 class="text-center font-semibold">
+            <a href="https://play.google.com/store/apps/details?id=newsapp" target="_blank">News App</a>
           </h3>
-          <p class="text-xs text-gray-500 text-center">Historical events on this day</p>
+          <p class="text-center text-sm text-gray-600">Get daily news on your phone</p>
         </div>
-
-        <!-- App 2 -->
-        <div class="min-w-[240px] flex-shrink-0 bg-gray-50 p-4 rounded shadow hover:scale-105 transition">
-          <img src="app2.png" alt="App Logo" class="h-16 w-16 mx-auto mb-2 rounded" />
-          <h3 class="text-center font-semibold text-sm">
-            <a href="#" target="_blank" class="hover:underline">App Name</a>
+        <!-- Slide 2 -->
+        <div class="min-w-full md:min-w-[300px] bg-gray-50 p-4 rounded shadow hover:scale-105 transition">
+          <img src="app2.png" alt="App 2" class="h-20 w-20 mx-auto mb-2" />
+          <h3 class="text-center font-semibold">
+            <a href="https://play.google.com/store/apps/details?id=theplusapp" target="_blank">The Plus App</a>
           </h3>
-          <p class="text-xs text-gray-500 text-center">App description</p>
+          <p class="text-center text-sm text-gray-600">All updates in one place</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Divider -->
   <hr class="section-divider" />
 
-  <!-- Web Media -->
-  <section id="webmedia" class="max-w-7xl mx-auto px-4 py-8">
-    <h2 class="text-xl font-bold mb-4">Web Media</h2>
-    <div class="grid md:grid-cols-2 gap-8 items-center">
-      
-      <!-- Left: Icon and Description -->
-      <div class="text-center md:text-left space-y-4 order-2 md:order-1">
-        <img src="web-icon.png" alt="Web Icon" class="h-10 mx-auto md:mx-0" />
-        <p class="text-sm text-gray-600">From blogs to tools, our digital platforms aim to educate and empower users worldwide.</p>
+  <!-- ====================== SECTION: Web Media ====================== -->
+  <section id="webmedia" class="py-10 px-4 max-w-7xl mx-auto">
+    <h2 class="text-2xl font-bold mb-4 text-left text-gray-800">Web Media</h2>
+    <div class="flex flex-col md:flex-row gap-6 items-center">
+
+      <!-- LEFT: Web Icon + Info -->
+      <div class="w-full md:w-1/3 text-center md:text-left">
+        <img src="web-icon.png" alt="Web Icon" class="h-12 mx-auto md:mx-0 mb-2" />
+        <p class="text-gray-600 text-sm">Our digital presence includes blogs, tools, and content websites under our media network.</p>
       </div>
 
-      <!-- Right: Web Cards (Slider) -->
-      <div class="scroll-x flex gap-4 order-1 md:order-2">
-        <!-- Web 1 -->
-        <div class="min-w-[240px] flex-shrink-0 bg-gray-50 p-4 rounded shadow hover:scale-105 transition">
-          <img src="web1.png" alt="Web Logo" class="h-16 w-16 mx-auto mb-2 rounded-full" />
-          <h3 class="text-center font-semibold text-sm">
-            <a href="https://theplusdigital.in" target="_blank" class="hover:underline">The Plus News</a>
+      <!-- RIGHT: Slider -->
+      <div class="w-full md:w-2/3 overflow-x-auto hide-scrollbar flex space-x-6">
+        <!-- Slide 1 -->
+        <div class="min-w-full md:min-w-[300px] bg-gray-50 p-4 rounded shadow hover:scale-105 transition">
+          <img src="web1.png" alt="Site 1" class="h-20 w-20 mx-auto mb-2" />
+          <h3 class="text-center font-semibold">
+            <a href="https://plusnews.com" target="_blank">Plus News</a>
           </h3>
-          <p class="text-xs text-gray-500 text-center">Updates, blogs & more</p>
+          <p class="text-center text-sm text-gray-600">Latest updates & blog news</p>
         </div>
-
-        <!-- Web 2 -->
-        <div class="min-w-[240px] flex-shrink-0 bg-gray-50 p-4 rounded shadow hover:scale-105 transition">
-          <img src="web2.png" alt="Web Logo" class="h-16 w-16 mx-auto mb-2 rounded-full" />
-          <h3 class="text-center font-semibold text-sm">
-            <a href="https://example.com" target="_blank" class="hover:underline">Tech Portal</a>
+        <!-- Slide 2 -->
+        <div class="min-w-full md:min-w-[300px] bg-gray-50 p-4 rounded shadow hover:scale-105 transition">
+          <img src="web2.png" alt="Site 2" class="h-20 w-20 mx-auto mb-2" />
+          <h3 class="text-center font-semibold">
+            <a href="https://techupdates.com" target="_blank">Tech Updates</a>
           </h3>
-          <p class="text-xs text-gray-500 text-center">Tech blogs & reviews</p>
+          <p class="text-center text-sm text-gray-600">Tech trends & articles</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="bg-white border-t-2 border-gray-200 py-6 text-sm mt-8">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-      <p class="text-gray-600">&copy; 2025 The Plus Digital. All rights reserved.</p>
-      <a href="mailto:theplusdigital@gmail.com" class="text-red-600 flex items-center gap-2 mt-2 md:mt-0 hover:underline">
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="bg-white border-t-2 border-gray-200 py-6 px-4 text-sm">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-gray-600">
+      <p>© 2025 The Plus Digital. All rights reserved.</p>
+      <a href="mailto:theplusdigital@gmail.com" class="flex items-center gap-2 text-red-600 hover:underline transition">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current" viewBox="0 0 24 24">
           <path d="M2 4a2 2 0 012-2h16a2 2 0 012 2v1l-10 6L2 5V4zm0 3.25v12a2 2 0 002 2h16a2 2 0 002-2v-12l-10 6-10-6z"/>
         </svg>
@@ -227,7 +211,7 @@
     </div>
   </footer>
 
-  <!-- ========== JS ========== -->
+  <!-- ====================== JS: Toggle Mobile Menu ====================== -->
   <script>
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
