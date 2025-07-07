@@ -22,8 +22,8 @@
 
     /* Carousel Dots */
     .dot {
-      height: 12px;
-      width: 12px;
+      height: 10px;
+      width: 10px;
       border-radius: 50%;
       background: linear-gradient(45deg, #e11d48, #f43f5e);
       opacity: 0.3;
@@ -33,8 +33,8 @@
 
     .dot.active {
       opacity: 1;
-      transform: scale(1.2);
-      box-shadow: 0 0 15px rgba(225, 29, 72, 0.5);
+      transform: scale(1.3);
+      box-shadow: 0 0 12px rgba(225, 29, 72, 0.5);
     }
 
     /* Carousel Animations */
@@ -111,6 +111,7 @@
       transition: all 0.3s ease-in-out;
       transform: translateX(100%);
       opacity: 0;
+      background: white;
     }
 
     .mobile-menu.show {
@@ -165,36 +166,91 @@
       visibility: visible;
     }
 
-    /* Navigation arrows */
-    .nav-arrow {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
+    /* Section icons */
+    .section-icon {
       width: 40px;
       height: 40px;
+      background: linear-gradient(45deg, #e11d48, #f43f5e);
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
+      margin: 0 auto 16px;
       transition: all 0.3s ease;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
+      box-shadow: 0 4px 15px rgba(225, 29, 72, 0.3);
     }
 
-    .nav-arrow:hover {
-      background: rgba(255, 255, 255, 0.9);
-      transform: translateY(-50%) scale(1.1);
+    .section-icon:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 8px 25px rgba(225, 29, 72, 0.5);
     }
 
-    .nav-arrow.prev {
-      left: 10px;
+    /* Stats counter animation */
+    .stats-item {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
     }
 
-    .nav-arrow.next {
-      right: 10px;
+    .stats-item:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .stats-number {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #e11d48, #f43f5e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    /* Interactive social links */
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #e11d48, #f43f5e);
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(225, 29, 72, 0.3);
+    }
+
+    .social-link:hover {
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 8px 25px rgba(225, 29, 72, 0.5);
+    }
+
+    /* Simplified dot navigation */
+    .dot-container {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      
+      .stats-number {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
@@ -204,17 +260,42 @@
   <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b-2 border-red-600 shadow-lg">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <!-- Logo -->
-      <a href="#top" class="flex items-center gap-3 group transition">
+      <div class="flex items-center gap-3 group transition cursor-pointer" onclick="refreshPage()">
         <img src="logo.png" alt="Logo" class="h-14 w-14 rounded-full shadow-lg group-hover:rotate-12 duration-300 pulse-glow" />
         <span class="text-lg font-bold group-hover:text-red-600 transition">THE PLUS DIGITAL</span>
-      </a>
+      </div>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex space-x-8 text-sm font-semibold">
-        <a href="#youtube" class="hover:text-red-600 transition border-b-2 border-transparent hover:border-red-600 py-2">YouTube</a>
-        <a href="#webmedia" class="hover:text-red-600 transition border-b-2 border-transparent hover:border-red-600 py-2">Web Media</a>
-        <a href="#apps" class="hover:text-red-600 transition border-b-2 border-transparent hover:border-red-600 py-2">Apps</a>
-      </nav>
+      <!-- Desktop Stats/Info -->
+      <div class="hidden md:flex items-center gap-6">
+        <div class="stats-grid grid grid-cols-3 gap-4">
+          <div class="stats-item">
+            <span class="stats-number">2+</span>
+            <span class="text-xs text-gray-600">YouTube Channels</span>
+          </div>
+          <div class="stats-item">
+            <span class="stats-number">5+</span>
+            <span class="text-xs text-gray-600">Web Platforms</span>
+          </div>
+          <div class="stats-item">
+            <span class="stats-number">3+</span>
+            <span class="text-xs text-gray-600">Mobile Apps</span>
+          </div>
+        </div>
+        
+        <!-- Social Links -->
+        <div class="flex gap-3">
+          <a href="mailto:theplusdigital@gmail.com" class="social-link" title="Email">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M2 4a2 2 0 012-2h16a2 2 0 012 2v1l-10 6L2 5V4zm0 3.25v12a2 2 0 002 2h16a2 2 0 002-2v-12l-10 6-10-6z"/>
+            </svg>
+          </a>
+          <a href="#youtube" class="social-link" title="YouTube">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
 
       <!-- Mobile Menu -->
       <div class="md:hidden" id="hamburger">
@@ -230,7 +311,7 @@
     <div class="menu-overlay fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden" id="menuOverlay"></div>
 
     <!-- Mobile Navigation Menu -->
-    <div class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-50 md:hidden" id="mobileMenu">
+    <div class="mobile-menu fixed top-0 right-0 h-full w-64 shadow-2xl z-50 md:hidden" id="mobileMenu">
       <div class="flex flex-col h-full">
         <div class="flex justify-between items-center p-4 border-b-2 border-red-600">
           <span class="font-bold text-lg">Menu</span>
@@ -278,18 +359,16 @@
 
       <!-- ======= YOUTUBE SECTION ======= -->
       <div id="youtube" class="glass-card p-6 hover:shadow-2xl transition-all duration-300">
-        <div class="flex items-center gap-4 mb-6">
-          <img src="youtube-icon.png" alt="YouTube" class="h-16 w-16 floating" />
+        <div class="text-center mb-6">
+          <div class="section-icon floating">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </div>
           <h2 class="text-2xl font-bold text-gray-800">YouTube Channels</h2>
         </div>
         
         <div class="carousel-container relative">
-          <div class="nav-arrow prev" onclick="changeSlide('youtube', -1)">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-            </svg>
-          </div>
-          
           <div class="carousel-track" id="youtube-track">
             <div class="carousel-slide active p-6 text-center">
               <img src="yt1.png" alt="Plus Blocks" class="h-32 w-32 mx-auto mb-4 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300" />
@@ -307,15 +386,9 @@
               <p class="text-sm text-gray-600">App development and tech updates</p>
             </div>
           </div>
-          
-          <div class="nav-arrow next" onclick="changeSlide('youtube', 1)">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
-            </svg>
-          </div>
         </div>
         
-        <div class="flex justify-center mt-6 gap-3">
+        <div class="dot-container">
           <div class="dot active" onclick="goToSlide('youtube', 0)"></div>
           <div class="dot" onclick="goToSlide('youtube', 1)"></div>
         </div>
@@ -323,18 +396,16 @@
 
       <!-- ======= WEB MEDIA SECTION ======= -->
       <div id="webmedia" class="glass-card p-6 hover:shadow-2xl transition-all duration-300">
-        <div class="flex items-center gap-4 mb-6">
-          <img src="web-icon.png" alt="Web Media" class="h-16 w-16 floating" />
+        <div class="text-center mb-6">
+          <div class="section-icon floating">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
           <h2 class="text-2xl font-bold text-gray-800">Web Media</h2>
         </div>
         
         <div class="carousel-container relative">
-          <div class="nav-arrow prev" onclick="changeSlide('webmedia', -1)">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-            </svg>
-          </div>
-          
           <div class="carousel-track" id="webmedia-track">
             <div class="carousel-slide active p-6 text-center">
               <img src="web1.png" alt="Plus News" class="h-32 w-32 mx-auto mb-4 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300" />
@@ -352,15 +423,9 @@
               <p class="text-sm text-gray-600">Daily tips and tools</p>
             </div>
           </div>
-          
-          <div class="nav-arrow next" onclick="changeSlide('webmedia', 1)">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
-            </svg>
-          </div>
         </div>
         
-        <div class="flex justify-center mt-6 gap-3">
+        <div class="dot-container">
           <div class="dot active" onclick="goToSlide('webmedia', 0)"></div>
           <div class="dot" onclick="goToSlide('webmedia', 1)"></div>
         </div>
@@ -368,18 +433,16 @@
 
       <!-- ======= MOBILE APPS SECTION ======= -->
       <div id="apps" class="glass-card p-6 hover:shadow-2xl transition-all duration-300">
-        <div class="flex items-center gap-4 mb-6">
-          <img src="google-play-badge.png" alt="Google Play" class="h-12 w-auto floating" />
+        <div class="text-center mb-6">
+          <div class="section-icon floating">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17 19H7V5h10v14zm-5-13c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm2.5 12c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+            </svg>
+          </div>
           <h2 class="text-2xl font-bold text-gray-800">Mobile Apps</h2>
         </div>
         
         <div class="carousel-container relative">
-          <div class="nav-arrow prev" onclick="changeSlide('apps', -1)">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-            </svg>
-          </div>
-          
           <div class="carousel-track" id="apps-track">
             <div class="carousel-slide active p-6 text-center">
               <img src="app1.png" alt="The Day Info" class="h-32 w-32 mx-auto mb-4 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300" />
@@ -397,15 +460,9 @@
               <p class="text-sm text-gray-600">Simple note-taking app</p>
             </div>
           </div>
-          
-          <div class="nav-arrow next" onclick="changeSlide('apps', 1)">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
-            </svg>
-          </div>
         </div>
         
-        <div class="flex justify-center mt-6 gap-3">
+        <div class="dot-container">
           <div class="dot active" onclick="goToSlide('apps', 0)"></div>
           <div class="dot" onclick="goToSlide('apps', 1)"></div>
         </div>
@@ -436,35 +493,9 @@
       apps: { currentSlide: 0, totalSlides: 2 }
     };
 
-    // Enhanced slide navigation
-    function changeSlide(section, direction) {
-      const state = carouselStates[section];
-      const track = document.getElementById(section + '-track');
-      const slides = track.querySelectorAll('.carousel-slide');
-      const dots = track.parentElement.nextElementSibling.querySelectorAll('.dot');
-
-      // Update current slide
-      state.currentSlide += direction;
-      
-      // Handle wraparound
-      if (state.currentSlide >= state.totalSlides) {
-        state.currentSlide = 0;
-      } else if (state.currentSlide < 0) {
-        state.currentSlide = state.totalSlides - 1;
-      }
-
-      // Update slides
-      slides.forEach((slide, index) => {
-        slide.classList.toggle('active', index === state.currentSlide);
-      });
-
-      // Update dots
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === state.currentSlide);
-      });
-
-      // Transform track
-      track.style.transform = `translateX(-${state.currentSlide * 100}%)`;
+    // Logo refresh functionality
+    function refreshPage() {
+      window.location.reload();
     }
 
     // Direct slide navigation
@@ -494,9 +525,11 @@
     function startAutoPlay() {
       setInterval(() => {
         Object.keys(carouselStates).forEach(section => {
-          changeSlide(section, 1);
+          const state = carouselStates[section];
+          const nextSlide = (state.currentSlide + 1) % state.totalSlides;
+          goToSlide(section, nextSlide);
         });
-      }, 5000);
+      }, 4000);
     }
 
     // Mobile Menu Functionality
@@ -542,7 +575,21 @@
     });
 
     // Initialize auto-play
-    // startAutoPlay();
+    startAutoPlay();
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
   </script>
 
 </body>
